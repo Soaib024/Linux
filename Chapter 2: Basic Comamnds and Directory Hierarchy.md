@@ -75,3 +75,55 @@ $ sort input_stream
 $ sort -r input_stream # reverse order
 $ sort -n input_stream # if inputs are numerical
 ```
+## 2.6 Changing Your Password and Shell
+
+Use the `passwd` command to change your password.
+
+You can change your shell with the `chsh` command
+
+
+## 2.11 Command-Line Editing
+```shell
+Keystroke	Action
+CTRL-B	Move the cursor left
+CTRL-F	Move the cursor right
+CTRL-P	View the previous command (or move the cursor up)
+CTRL-N	View the next command (or move the cursor down)
+CTRL-A	Move the cursor to the beginning of the line
+CTRL-E	Move the cursor to the end of the line
+CTRL-W	Erase the preceding word
+CTRL-U	Erase from cursor to beginning of line
+CTRL-K	Erase from cursor to end of line
+CTRL-Y	Paste erased text (for example, from CTRL-U)
+
+```
+
+## 2.13 Getting Online Help
+
+
+```shell
+$ man ls
+
+$ man -k keyword # $ man -k sort
+```
+
+## 2.14 Shell Input and Output
+
+```shell
+# STDOUT
+$ command > file # write output to file (creates new file if not present, overwrites of already present)
+$ command >> file # append mode
+$ head /proc/cpuinfo | tr a-z A-Z
+
+
+# STDERR
+ls /fffffffff > f 2> e # write output to f and error to e
+# The number 2 specifies the stream ID that the shell modifies. Stream ID 1 is standard output (the default), and 2 is standard error.
+
+ls /fffffffff 1> f 2> e
+ls ls /fffffffff > f 2>&1 # send both output and error to same file f
+
+
+# STDIN
+head < /proc/cpuinfo
+```
